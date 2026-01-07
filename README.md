@@ -44,3 +44,22 @@ iwr -useb https://raw.githubusercontent.com/laojiu-666/claude-code-toolkit/main/
 2. 切换到目标分支并更新
 3. 列出待合并提交（编号显示）
 4. 回复序号选择性合并，或 `all` 全部合并
+
+### /commit
+智能 git commit，自动生成规范提交信息。
+
+```
+/commit [staged|all]
+```
+
+- 无参数：提交当前对话涉及的文件
+- `staged`：仅提交暂存区
+- `all`：提交所有改动
+
+提交信息格式：
+```
+<type>[模块名] 一句话总结
+
+- 具体功能点1
+- 具体功能点2
+```
