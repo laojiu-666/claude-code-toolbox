@@ -5,7 +5,7 @@ set -euo pipefail
 
 REPO_RAW="https://raw.githubusercontent.com/laojiu-666/claude-code-toolkit/main"
 TARGET_DIR="${CLAUDE_COMMANDS_DIR:-$HOME/.claude/commands}"
-COMMANDS="report.md merge.md commit.md"
+COMMANDS="report.md report-scan.md merge.md commit.md"
 
 mkdir -p "$TARGET_DIR"
 
