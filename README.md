@@ -16,8 +16,20 @@ iwr -useb https://raw.githubusercontent.com/laojiu-666/claude-code-toolkit/main/
 
 ## 命令说明
 
+### /report-scan
+扫描指定路径下所有 git 项目，写入配置文件供 `/report` 使用。
+
+```
+/report-scan <path>
+```
+
+示例：
+- `/report-scan D:\work` - 扫描 D:\work 下所有 git 项目
+
+扫描结果保存至 `~/.claude/report-projects.txt`。
+
 ### /report
-从 git 提交记录生成日报/周报。
+从多个项目的 git 提交记录生成统一日报/周报。
 
 ```
 /report [daily|weekly] [polite] [since] [until]
@@ -27,8 +39,10 @@ iwr -useb https://raw.githubusercontent.com/laojiu-666/claude-code-toolkit/main/
 - `polite`：添加原因与影响说明
 - `since`/`until`：时间范围，默认自动推算
 
+使用前需先执行 `/report-scan` 扫描项目。
+
 示例：
-- `/report` - 生成今日日报
+- `/report` - 生成今日日报（汇总所有项目）
 - `/report weekly` - 生成本周周报
 - `/report daily polite` - 生成带说明的日报
 
