@@ -1,0 +1,37 @@
+{
+  "name": "claude-code-toolbox",
+  "version": "1.0.0",
+  "description": "Claude Code slash commands toolbox - 交互式安装管理",
+  "type": "module",
+  "bin": {
+    "claude-code-toolbox": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "commands"
+  ],
+  "scripts": {
+    "test": "node bin/cli.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "cli",
+    "commands",
+    "toolbox"
+  ],
+  "author": "laojiu-666",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laojiu-666/claude-code-toolbox.git"
+  },
+  "dependencies": {
+    "inquirer": "^9.2.12",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

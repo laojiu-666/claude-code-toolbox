@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(Get-ChildItem:*)",
+      "Bash(ForEach-Object { $_Parent.FullName })",
+      "Bash(while read gitdir)",
+      "Bash(do dirname \"$gitdir\")",
+      "Bash(done)",
+      "Bash(git commit:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell -NoProfile -Command:*)",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File:*)",
+      "Bash(del \"D:\\\\project\\\\claude-code-toolkit\\\\scan-git.ps1\")",
+      "Bash(npm install:*)",
+      "Bash(node bin/cli.js)",
+      "Bash(node -e \"\nimport fs from ''fs'';\nimport path from ''path'';\nimport os from ''os'';\n\nconst COMMANDS_DIR = path.join\\(os.homedir\\(\\), ''.claude'', ''commands''\\);\nconst LOCAL_COMMANDS_DIR = ''./commands'';\n\n// 列出本地命令\nconst localCmds = fs.readdirSync\\(LOCAL_COMMANDS_DIR\\);\nconsole.log\\(''本地命令文件:'', localCmds\\);\n\n// 检查目标目录\nif \\(fs.existsSync\\(COMMANDS_DIR\\)\\) {\n  const installedCmds = fs.readdirSync\\(COMMANDS_DIR\\);\n  console.log\\(''已安装命令:'', installedCmds\\);\n} else {\n  console.log\\(''目标目录不存在:'', COMMANDS_DIR\\);\n}\n\")",
+      "Bash(node -e \"\nimport chalk from ''chalk'';\nconsole.log\\(chalk.cyan\\(\\\\`\n   ██████╗ ██████╗████████╗\n  ██╔════╝██╔════╝╚══██╔══╝\n  ██║     ██║        ██║\n  ██║     ██║        ██║\n  ╚██████╗╚██████╗   ██║\n   ╚═════╝ ╚═════╝   ╚═╝\n  \\\\`\\)\\);\nconsole.log\\(''  Claude Code Toolkit''\\);\n\")"
+    ]
+  }
+}

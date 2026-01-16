@@ -1,18 +1,20 @@
-# claude-code-toolkit
+# claude-code-toolbox
 
 Claude Code 相关的命令与配置集合（当前包含：slash commands）。
 
-## 一键安装
+## 安装
 
-### macOS / Linux / WSL
+需要 Node.js >= 18
+
 ```bash
-curl -fsSL https://raw.githubusercontent.com/laojiu-666/claude-code-toolkit/main/scripts/install.sh | bash
+npx claude-code-toolbox
 ```
 
-### Windows PowerShell
-```powershell
-iwr -useb https://raw.githubusercontent.com/laojiu-666/claude-code-toolkit/main/scripts/install.ps1 | iex
-```
+提供交互式界面，支持：
+- 📦 选择性安装/更新命令
+- 🗑️ 卸载已安装的命令
+- 📋 查看已安装命令列表
+- 🚀 一键全部安装
 
 ## 命令说明
 

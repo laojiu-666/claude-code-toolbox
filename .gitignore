@@ -1,24 +1,4 @@
-# OS
+node_modules/
+package-lock.json
 .DS_Store
-Thumbs.db
-Desktop.ini
-
-# Editor
-.idea/
-.vscode/
-*.swp
-*.swo
-*~
-
-# Logs
 *.log
-
-# Backup
-.backup_*
-
-# Temp
-*.tmp
-*.temp
-
-# Claude Code local
-.claude/

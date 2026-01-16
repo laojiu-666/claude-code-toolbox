@@ -16,14 +16,32 @@ allowed-tools: Bash(git fetch:*), Bash(git config:*), Bash(git log:*), Bash(cd:*
 - 若配置文件不存在或为空，则只扫描当前目录
 - 使用 `/report-scan <path>` 命令可自动扫描并生成配置文件
 
-执行（直接做，不要解释步骤）：
+执行（直接做，不要解释步骤，不要逐个询问确认）：
 1. 读取 `~/.claude/report-projects.txt`，获取所有项目路径
 2. 获取 author：优先 `git config --global user.email`，否则 `git config --global user.name`
-3. 遍历每个项目：
-   - 进入目录，执行 `git fetch --all --prune`
-   - 获取项目名：取目录名作为项目名
-   - 获取 commits：`git log @{u} --since="<since>" --until="<until>" --no-merges --date=short --pretty=format:'%ad|%s' --author="<author>"`
-   - 记录：项目名 + commits 列表
+3. **批量执行**：用单条命令遍历所有项目，一次性获取所有提交记录（不要逐个项目分开执行）
+   - **跨平台**：根据当前 shell 环境选择命令格式
+   - **Bash/Zsh 示例**（macOS/Linux/WSL/Git Bash）：
+     ```bash
+     while IFS= read -r repo || [ -n "$repo" ]; do
+       [ -z "$repo" ] && continue
+       echo "=== $(basename "$repo") ==="
+       cd "$repo" && git fetch --all --prune 2>/dev/null
+       git log @{u} --since="<since>" --until="<until>" --no-merges --date=short --pretty=format:'%ad|%s' --author="<author>" 2>/dev/null || true
+       echo ""
+     done < ~/.claude/report-projects.txt
+     ```
+   - **PowerShell 示例**（Windows 原生）：
+     ```powershell
+     Get-Content ~/.claude/report-projects.txt | ForEach-Object {
+       $repo = $_; if ($repo) {
+         Write-Host "=== $(Split-Path $repo -Leaf) ==="
+         Set-Location $repo; git fetch --all --prune 2>$null
+         git log '@{u}' --since="<since>" --until="<until>" --no-merges --date=short --pretty=format:'%ad|%s' --author="<author>" 2>$null
+         Write-Host ""
+       }
+     }
+     ```
 4. 汇总所有项目的 commits
 
 写作规则：
